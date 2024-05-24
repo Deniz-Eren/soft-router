@@ -1,0 +1,14 @@
+network:
+    ethernets:
+        enp1s0:
+            dhcp4: true
+        enp2s0:
+            dhcp4: true
+            optional: true
+        enp3s0:
+            dhcp4: true
+            optional: true
+        enp4s0:
+            dhcp4: true
+            optional: true
+    version: 2
