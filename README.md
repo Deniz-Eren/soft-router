@@ -86,10 +86,10 @@ these devices instead of the default driver, which is normally used to operate
 these devices on the host system.
 
 For example, if you run the command `lspci -nnk` you will see
-'Kernel driver in use: igc' for ETH1 and ETH2 (it was igc for the particular
+`Kernel driver in use: igc` for ETH1 and ETH2 (it was igc for the particular
 hardware used in this example).
 
-Copy `ubuntu/etc/modules-load.d/vfio-pci.conf' to '/etc/modules-load.d/` on your
+Copy `ubuntu/etc/modules-load.d/vfio-pci.conf` to `/etc/modules-load.d/` on your
 server and run:
 
     sudo chmod 644 /etc/modules-load.d/vfio-pci.conf
@@ -105,9 +105,9 @@ specific PCI device addresses.
 
 ## Make Linux Kernel use VFIO Module for I226-V LAN Devices
 
-Copy 'ubuntu/etc/udev/rules.d/10-qemu.rules' to '/etc/udev/rules.d/' on your
+Copy `ubuntu/etc/udev/rules.d/10-qemu.rules` to `/etc/udev/rules.d/` on your
 server and edit the file to change `0000:02:00.0` and `0000:03:00.0` to the PCI
-addresses, and change '8086 125c' to the vendor-id and device-id of your
+addresses, and change `8086 125c` to the vendor-id and device-id of your
 devices.
 
 Then apply by running:
@@ -115,7 +115,7 @@ Then apply by running:
     sudo udevadm control --reload-rules
     sudo udevadm trigger
 
-Running command 'lspci -nnk' will now show 'Kernel driver in use: vfio-pci' for
+Running command `lspci -nnk` will now show `Kernel driver in use: vfio-pci` for
 your assigned devices.
 
 ## Create pfSense disk image
@@ -160,14 +160,14 @@ only mode. It is also nice to setup the exact same Network Name (SSID) and
 password for all of your WiFi devices, just make sure you chose a different
 channel for each if you have multiple access points.
 
-It could be a good idea to also use command 'nmcli d wifi' to check nearby WiFi
+It could be a good idea to also use command `nmcli d wifi` to check nearby WiFi
 signals and to check what channels they are using, so that you pick a different
 channel to minimize clashing.
 
 ## Make pfSense Persistent
 
-Copy 'ubuntu/etc/init.d/qemu-pfsense' to '/etc/init.d/' path on your server and
-edit to change the '<user-id>' and '<path-to-image>' on the following lines:
+Copy `ubuntu/etc/init.d/qemu-pfsense` to `/etc/init.d/` path on your server and
+edit to change the `<user-id>` and `<path-to-image>` on the following lines:
 
     exec sudo -H -u <user-id> bash -c 'qemu-system-x86_64
 
@@ -182,19 +182,19 @@ Then for it to take effect run:
     sudo update-rc.d qemu-pfsense enable
 
 You may need to reboot at this stage. When your system comes back up check
-'/var/log/syslog' to see if qemu instances started without issues. You can also
+`/var/log/syslog` to see if qemu instances started without issues. You can also
 use 'htop' to check the active running processes. In this example, with the N100
-running QEmu with 4 cores, 'htop' shows 4 instances of 'qemu-system-x86_64'.
+running QEmu with 4 cores, `htop` shows 4 instances of `qemu-system-x86_64`.
 
 ## Improve Booting Up Time
 
-Copy 'ubuntu/etc/netplan/99_config.yaml' to '/etc/netplan/' path on your server
+Copy `ubuntu/etc/netplan/99_config.yaml` to `/etc/netplan/` path on your server
 and run:
 
     sudo chmod 600 ubuntu/etc/netplan/99_config.yaml
     sudo netplan apply
 
-This added the 'optional: true' to all but the first ETH0 device, which speeds
+This added the `optional: true` to all but the first ETH0 device, which speeds
 up the boot time.
 
 You can check the booting up time analysis with the command:
