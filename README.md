@@ -62,7 +62,7 @@ translates device virtual addresses to physical address. We use this to
 pass-through our ETH1 and ETH2 LAN devices from our host Linux computer to the
 QEmu VM.
 
-Edit `sudo vim /etc/default/grub` and navigate to
+Edit `/etc/default/grub` and navigate to
 `GRUB_CMDLINE_LINUX_DEFAULT=""` and make the following changes:
 
     GRUB_CMDLINE_LINUX_DEFAULT="intel_iommu=on kvm.ignore_msrs=1"
@@ -76,7 +76,7 @@ running:
 
     sudo dmesg | grep -i -e DMAR -e IOMMU
 
-You should see '[    --------] DMAR: IOMMU enabled' in the output dump.
+You should see `[    --------] DMAR: IOMMU enabled` in the output dump.
 
 ## Enable Linux Kernel Module VFIO
 
