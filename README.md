@@ -85,7 +85,7 @@ need the host Linux Kernel to assign the Virtual Function I/O (VFIO) driver to
 these devices instead of the default driver, which is normally used to operate
 these devices on the host system.
 
-For example, if you run the command 'lspci -nnk' you will see
+For example, if you run the command `lspci -nnk` you will see
 'Kernel driver in use: igc' for ETH1 and ETH2 (it was igc for the particular
 hardware used in this example).
 
