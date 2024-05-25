@@ -14,7 +14,7 @@
 
 case "$1" in
   start)
-    exec sudo -H -u <user> bash -c 'qemu-system-x86_64 \
+    exec sudo -H -u <user-id> bash -c 'qemu-system-x86_64 \
         -enable-kvm \
         -cpu host \
         -smp 4 \
