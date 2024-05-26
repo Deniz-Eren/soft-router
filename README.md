@@ -28,6 +28,10 @@ Hardware used from AliExpress:
 
 ## Architecture
 
+![plot](./docs/images/architecture.png)
+
+Note that both ETH0 (host comms) and ETH2 (pfSense LAN) from our N100 Computer are both connected to the managed switch. That is, pfSense runs on the host within a VM using ETH1 (WAN) and ETH2 (LAN) as pass-through PCI devices, and provide a network for the host to connect via the same managed switch. This allows us to access the host server via our WiFi access points for future configuration and maintenance.
+
 ## BIOS Setup
 
 Ensure you enable Intel Virtualization (VT-x) and Direct I/O (VT-d) from the
