@@ -214,3 +214,15 @@ Before this change, the main slowness was coming from:
 
     systemd-networkd-wait-online.service too slow
 
+## Cockpit
+
+To make monitoring of your server easier install
+[Cockpit](https://cockpit-project.org/):
+
+    sudo apt-get install cockpit
+
+Start and enable Cockpit:
+
+    sudo systemctl enable --now cockpit.socket
+
+Then browse to _https://server:9090/_
