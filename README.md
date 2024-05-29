@@ -226,3 +226,12 @@ Start and enable Cockpit:
     sudo systemctl enable --now cockpit.socket
 
 Then browse to _https://server:9090/_
+
+Different Cockpit components can be installed, for example Performance Co-Pilot:
+
+    sudo apt install cockpit-pcp
+
+Then restart Cockpit:
+
+    sudo systemctl restart --now cockpit.socket
+
