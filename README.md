@@ -132,6 +132,19 @@ your assigned devices.
 After all the host server setup is complete, ensure to reboot the server for all
 to take effect before proceeding here.
 
+> [!WARNING]
+> The initial pfSense setup steps must be done over SSH session using a desktop
+> computer, and NOT on the host computer using a keyboard/monitor plugged
+> directly. The reason for this is because QEmu must open a guest window popup,
+> which gives you the access needed to perform the initial pfSense setup.
+> Of course this is assuming you have installed a server version of Ubuntu; if
+> you have installed a desktop version (not recommended) then this note could be
+> disregarded.
+> To clarify further, the `qemu-system-x86_64` startup command below does NOT
+> have the option `-nographic` specified, however the init.d startup script
+> does! During setup we need the graphic window of QEmu and during server
+> operations thereafter, we will not.
+
 First make a 32G disk image:
 
     dd if=/dev/zero of=disk-raw iflag=fullblock bs=1G count=32
